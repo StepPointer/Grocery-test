@@ -1,0 +1,58 @@
+page-add-new-item {
+  $text-color: #434343;
+  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  ion-header{
+    .header-items-wrapp {
+      margin: 8px 0;
+      font-weight: bold;
+      word-spacing: -1px;
+      button {
+        padding: 6px 2px;
+        background: transparent;
+        font-weight: bold;
+        font-size: 18px;
+        img {
+          width: 65%;
+        }
+      }
+      .header-left-button-wrapp {
+        width: 15%;
+        height: 25%;
+        img{
+          padding-top: 3px;
+        }
+      }
+      .header-title-wrapp {
+        width: 70%;
+        height: 40px;
+        font-size: 20px;
+        color: $text-color;
+      }
+      .header-right-button-wrapp {
+        width: 15%;
+      }
+    }
+  }
+  ion-content{
+    ion-row{
+      width: 100%;
+    }
+    font-size: 20px;
+    color: $text-color;
+    font-weight: bold;
+    word-spacing: -1px;
+    .title{
+      margin: 7% 0 12%;
+    }
+    .text-input{
+      margin: 6px 4px;
+    }
+    .input-cover{
+      border-bottom: 1px solid black;
+    }
+    .input{
+      font-weight: normal;
+      margin-bottom: 4px;
+    }
+  }
+}

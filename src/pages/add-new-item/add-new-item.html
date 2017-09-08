@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-row class='header-items-wrapp' align-items-center justify-content-center>
+    <ion-row class='header-left-button-wrapp' align-items-center justify-content-center>
+      <button (tap)="goBack()">
+        <span>Cancel</span>
+      </button>
+    </ion-row>
+    <ion-row class='header-title-wrapp' align-items-center justify-content-center>
+      <span>Add new list item</span>
+    </ion-row>
+    <ion-row class='header-right-button-wrapp' align-items-center justify-content-center>
+      <button (tap)="returnNewItems()"  >
+        <span>Done</span>
+      </button>
+    </ion-row>
+  </ion-row>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row class="title" align-items-center justify-content-center>
+    <span>Add new list item</span>
+  </ion-row>
+  <ion-row>
+    <ion-row class="input">
+      <ion-input (input)="calulateChars()" maxlength="27" #input [(ngModel)]="inputValue">{{inputValue}}</ion-input>
+    </ion-row>
+    <ion-row  align-items-center justify-content-end class="chars-left">
+      <span>Characters left {{charactersLeft}}</span>
+    </ion-row>
+  </ion-row>
+</ion-content>

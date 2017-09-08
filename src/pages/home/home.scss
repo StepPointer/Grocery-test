@@ -1,0 +1,121 @@
+page-home {
+  $text-color: #434343;
+  font-weight: bold;
+  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  ion-header{
+    .header-items-wrapp {
+      margin: 8px 0;
+      button {
+        padding: 6px 2px;
+        background: transparent;
+        font-weight: bold;
+        font-size: 18px;
+        img {
+          width: 65%;
+        }
+      }
+      .header-left-button-wrapp {
+        width: 15%;
+        height: 25%;
+        img{
+          padding-top: 3px;
+        }
+      }
+      .header-title-wrapp {
+        width: 70%;
+        height: 40px;
+        font-size: 20px;
+        color: $text-color;
+      }
+      .header-right-button-wrapp {
+        width: 15%;
+      }
+    }
+  }
+
+  ion-content{
+    ion-list{
+      margin: 0 !important;
+      height: 10%;
+      ion-item-sliding {
+        height: 100%;
+        ion-item {
+          height: 100%;
+        }
+      }
+      .editing{
+        padding: 0;
+        height: 100%;
+        ion-label{
+          height: 100%;
+          margin: 0;
+        }
+        .remove-button-wrapp{
+          width: 15%;
+          height: 100%;
+          float: left;
+          button{
+            height: 100%;
+            background: transparent;
+            color: red;
+            font-size: 24px;
+          }
+        }
+        .item-text-wrapp{
+          width: 85%;
+          height: 100%;
+        }
+      }
+      ion-label{
+        font-weight: bold;
+        ion-row{
+          height: 100%;
+        }
+      }
+      button {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 60%;
+        }
+      }
+      .inList{
+        ion-label{
+          padding-left: 15%;
+        }
+      }
+      .left-option{
+        button{
+          margin-left: -3px;
+        }
+        img {
+          padding-top: 2px;
+        }
+      }
+    }
+  }
+
+  ion-footer{
+    border-top: 2px solid #dfdfdf;
+    .footer-items-wrapp{
+      width:100%;
+      padding: 10px 0;
+      button{
+        background: transparent;
+        width: 50%;
+      }
+      .footer-list-icon-wrapp{
+        width: 50%;
+        img{
+          width: 60%;
+        }
+      }
+      .footer-cart-icon-wrapp{
+        width: 50%;
+        img{
+          width: 70%;
+        }
+      }
+    }
+  }
+}

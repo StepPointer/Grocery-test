@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-row class='header-items-wrapp' align-items-center justify-content-center>
+    <ion-row class='header-left-button-wrapp' align-items-center justify-content-center>
+      <button  [hidden] = "isEditingMode" (tap)="openSettings()">
+        <img src='assets/icon/settings_icon.png' >
+      </button>
+      <button (tap)="openAddNewItemModal()"  [hidden] = "!isEditingMode">
+        <img src='assets/icon/plus-icon.png' >
+      </button>
+    </ion-row>
+    <ion-row class='header-title-wrapp' align-items-center justify-content-center>
+      <span>Groceries</span>
+    </ion-row>
+    <ion-row class='header-right-button-wrapp' align-items-center justify-content-center>
+      <button (tap)="changeToEditingMode()"  [hidden] = "isEditingMode">
+        <img src='assets/icon/edit_icon_active.png' >
+      </button>
+      <button (tap)="changeToListMode()"  [hidden] = "!isEditingMode">
+        <span>DONE</span>
+      </button>
+    </ion-row>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor='let item of itemsList' [hidden] = "!isListMode || isEditingMode" >
+    <ion-item-sliding [id]="item.id + '-slide'"  (ionDrag)="onDrag($event, item)">
+      <ion-item [id]="item.id + '-item'"  [ngClass]="{'inList': item.inList}">
+        {{item.text}}
+      </ion-item>
+      <ion-item-options class="left-option" side='left' >
+        <ion-row align-items-center justify-content-center>
+          <button (tap)="addToList(item, groceryList)">
+            <img src='assets/icon/cart_icon_50px.png'>
+          </button>
+        </ion-row>
+      </ion-item-options>
+      <ion-item-options class="right-option" side='right'>
+        <ion-row align-items-center justify-content-center>
+          <button (tap)="removeFromList(item, groceryList)">
+            <img src='assets/icon/home_icon_46px.png'>
+          </button>
+        </ion-row>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-list *ngFor='let item of groceryList'   [hidden] = "isListMode || isEditingMode">
+    <ion-item-sliding (ionDrag)="onDragCartList($event, item)">
+      <ion-item>
+        {{item.text}}
+      </ion-item>
+      <ion-item-options class="right-option" side='right'>
+        <ion-row align-items-center justify-content-center>
+          <button (tap)="removeFromList(item, groceryList)">
+            <img src='assets/icon/home_icon_46px.png'>
+          </button>
+        </ion-row>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-list  [hidden] = "!isEditingMode" >
+      <ion-item class="editing" *ngFor='let item of editList' >
+        <ion-row justify-content-center align-items-center class="remove-button-wrapp">
+          <button (tap)="removeFromList(item, editList)">
+            <ion-icon name="remove-circle"></ion-icon>
+          </button>
+        </ion-row>
+        <ion-row align-items-center class="item-text-wrapp">
+          <span>{{item.text}}</span>
+        </ion-row>
+      </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-row class='footer-items-wrapp' align-items-center justify-content-center>
+    <ion-row class='footer-list-icon-wrapp' align-items-center justify-content-center>
+      <button (tap) = "changeTab('list')">
+        <img src='assets/icon/list_icon_active.png' [hidden]='!isListMode'>
+        <img src='assets/icon/list_icon_inactive.png' [hidden]='isListMode'>
+      </button>
+    </ion-row>
+    <ion-row class='footer-cart-icon-wrapp' align-items-center justify-content-center>
+      <button (tap) = "changeTab('cart')">
+        <img src='assets/icon/cart_icon_inactive.png' [hidden]='!isListMode'>
+        <img src='assets/icon/cart_icon_active.png' [hidden]='isListMode'>
+      </button>
+    </ion-row>
+  </ion-row>
+</ion-footer>
